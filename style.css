@@ -1,0 +1,109 @@
+/* I've borrowed some code from Daniel here, thanks */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  padding: 1rem;
+  background: #f2efea;
+}
+
+header ul {
+  list-style-type: none;
+  text-transform: uppercase;
+  color: darkgray;
+  font-size: 1.5625rem;
+}
+
+header li {
+  color: brown;
+  display: inline;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  grid-column-gap: 2rem;
+  grid-row-gap: 5rem;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+nav a:hover {}
+
+/*
+.line {
+  grid-column: 1/-1;
+  height: 2px;
+  background: darkgray;
+}
+*/
+
+.box {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  padding: 1rem
+}
+
+article {
+  display: flex;
+  flex-flow: column;
+  padding: 2rem;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  background: white;
+}
+
+article h2,
+article h3 {
+  text-transform: uppercase;
+}
+
+article h2 {
+  color: darkgray;
+  letter-spacing: 3px;
+}
+
+article p {
+  font-style: italic;
+  color: darkgray;
+  border-bottom: 1px solid lightgrey;
+}
+
+article > img {
+  order: -1;
+  align-self: center;
+  width: 100%;
+  height: auto;
+  opacity: 80%;
+}
+
+article > button {
+  margin-top: auto;
+  background: white;
+  color: brown;
+  padding: 0.5rem;
+  border: 1px solid brown;
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+article > button:hover {
+  cursor: pointer;
+  background: hotpink;
+}
