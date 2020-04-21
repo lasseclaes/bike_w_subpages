@@ -38,6 +38,8 @@ main {
 .bike {
   display: flex;
   flex-flow: column;
+  max-width: 500px;
+  /* If there is only one, it'll take up full width */
 }
 
 .figure-img {
@@ -118,7 +120,9 @@ p {
 }
 
 .fullSpecs {
-  margin: 10px 30% 0px;
+  /*  margin: 10px 30% 0px;*/
+  display: block;
+  margin: 0 auto;
   border-radius: 1px;
   text-transform: uppercase;
   border: solid 1px;

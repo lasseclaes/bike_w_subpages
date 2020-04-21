@@ -6,7 +6,7 @@ const datalink2 = "https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/bike?
 
 function getData() {
   //console.log('DOM fully loaded and parsed');
-  fetch(datalink)
+  fetch(datalink2)
     .then(res => res.json())
     .then(handleData)
 }
@@ -24,9 +24,14 @@ function showBikes(bikes) {
 
   console.log(bikes._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url)
 
-  copy.querySelector(".brand").textContent = bikes.brand;
+  //lacj: copy.querySelector(".brand").textContent = bikes.brand;
 
-  copy.querySelector(".model").textContent = bikes.model;
+  copy.querySelector(".brand").textContent = bikes._embedded["wp:term"][0][1].name;
+  //  console.log('hey')
+  //  console.log(bikes._embedded["wp:term"]);
+
+  //lacj: copy.querySelector(".model").textContent = bikes.model;
+  copy.querySelector(".model").textContent = bikes.title.rendered;
   copy.querySelector(".price").textContent = bikes.price;
   copy.querySelector(".toPrice").textContent = bikes.price_to;
 
@@ -54,7 +59,6 @@ function showBikes(bikes) {
   if (bikes.colours == false) {
     copy.querySelector(".colour").textContent = ("N/A");
   }
-
 
   document.querySelector("main").appendChild(copy);
 }
