@@ -123,6 +123,7 @@ p {
 .fullSpecs {
   /*  margin: 10px 30% 0px;*/
   display: block;
+  width: fit-content;
   margin: 0 auto;
   border-radius: 1px;
   text-transform: uppercase;
