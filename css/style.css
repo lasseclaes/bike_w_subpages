@@ -79,6 +79,7 @@ p {
   font-weight: 600;
   color: var(--black-colour);
   font-size: 18px;
+  margin-left: 0.7rem;
 }
 
 .headerH2 {
