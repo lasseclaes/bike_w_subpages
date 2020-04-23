@@ -14,6 +14,21 @@ img {
   max-width: 100%;
 }
 
+header a::after {
+  content: "";
+  display: block;
+}
+
+article a {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+article a:hover {
+  color: hotpink;
+  transform: scale(1.2);
+}
+
 body {
   background: var(--background-beige);
   font-family: "avenir";
