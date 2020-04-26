@@ -14,13 +14,60 @@ img {
   max-width: 100%;
 }
 
-header a::after {
+header h2 {
+  display: inline;
+}
+
+/* link */
+a {
+  text-decoration: none;
+}
+
+header > a::after {
   content: "";
   display: block;
 }
 
+ul {
+  list-style: none;
+  /*  display: flex; */
+}
+
+nav li {
+  display: inline-block;
+  font-size: 20px;
+}
+
+nav li + li::before {
+  content: '/';
+  margin-left: 0.5rem;
+  padding-right: 0.5rem;
+  pointer-events: none;
+  display: inline-block;
+}
+
+nav a {
+  color: var(--dark-red, red);
+}
+
+/*
+nav a {
+  color: var(--dark-red);
+  display: inline;
+  letter-spacing: 4px;
+  font-size: 20px;
+  margin: 0 18px;
+}
+
+nav a::after {
+  content: "/";
+    position: absolute;
+  background: red;
+  pointer-events: none;
+}
+*/
+
 article a {
-  text-decoration: none;
   transition: all 0.3s;
 }
 
@@ -97,13 +144,13 @@ p {
   margin-left: 0.7rem;
 }
 
-.headerH2 {
+nav {
   display: inline;
   letter-spacing: 4px;
   font-size: 20px;
 }
 
-.brandsTop {
+nav {
   color: var(--dark-red);
 }
 

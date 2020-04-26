@@ -4,32 +4,68 @@ window.addEventListener('DOMContentLoaded', getData);
 const datalink2 = "https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/bikes?_embed";
 
 function getData() {
+  getNav();
   //console.log('DOM fully loaded and parsed');
   const urlParams = new URLSearchParams(window.location.search);
   console.log("URLSearchParams " + window.location);
   const the_bike_id = urlParams.get("bike_id"); //getting the id from the URL
-  console.log(the_bike_id);
+  const search_term = urlParams.get("searchterm");
+  //alert(search_term);
 
   //"our routing in the script"
   if (the_bike_id) {
+    //single bike view
     fetch("https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/bikes/" + the_bike_id + "?_embed")
       .then(res => res.json())
       .then(showBike) //skipping the forEach loop
+  }
+
+  ////lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/search?_embed&search=1+or+5
+  else if (search_term) {
+    //search results
+    fetch("https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/bikes?search=" + search_term + "&_embed")
+      .then(res => res.json())
+      .then(handleData)
   } else {
+    //all bikes view
     fetch(datalink2)
       .then(res => res.json())
       .then(handleData)
   }
 }
 
+function getNav() {
+  fetch("https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/categories?parent=5&orderby=count&order=desc")
+    .then(res => res.json())
+    .then(handleCategoryNavData)
+}
+
+function handleCategoryNavData(categories) {
+  categories.forEach(addNavLink);
+}
+
+function addNavLink(oneCategory) {
+  console.log("cat");
+  //console.log(oneCategory);
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  a.textContent = oneCategory.name;
+  a.href = "category.html?cat_id=" + oneCategory.id;
+  console.log(a);
+  li.appendChild(a);
+  document.querySelector('nav ul').appendChild(li);
+}
+
 function handleData(posts) {
   //console.log(posts);
-  posts.forEach(showBike); //looping through all bikes
+  if (posts) {
+    posts.forEach(showBike); //looping through all bikes
+  }
 }
 
 function showBike(bike) {
   console.log(bike);
-  console.log(bike.content.rendered);
+  //console.log(bike.content.rendered);
   const template = document.querySelector("template").content;
   const copy = template.cloneNode(true);
   //console.log(bike._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url)
@@ -87,3 +123,15 @@ function showBike(bike) {
 
   document.querySelector("main").appendChild(copy);
 }
+
+//const searchbtn = document.querySelector('#search-btn');
+//searchbtn.addEventListener('click', doSearch);
+
+//function doSearch(e) {
+//  //e.preventDefault();
+//  //alert('hello');
+//  fetch()
+//    .then(res => res.json())
+//    .then(handleData)
+//}
+//https: //lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/search?_embed&search=1+or+5
