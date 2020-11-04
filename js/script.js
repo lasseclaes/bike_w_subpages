@@ -37,8 +37,8 @@ function showBike(bike) {
   copy.querySelector(".inStock").textContent = bike.in_stock;
 
 
-  copy.querySelector(".img-bike").src = bike._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
-  copy.querySelector(".img-bike").alt = bike.brand;
+  copy.querySelector(".img-bike").src = bike._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url;
+  copy.querySelector(".img-bike").alt = bike.title.rendered;
 
   if (bike.price_to == false) {
     copy.querySelector(".twoPrices").classList.add("hide");
@@ -50,7 +50,7 @@ function showBike(bike) {
     const col = document.createElement("div");
     col.classList.add("colourDiv");
     col.style.background = color;
-    copy.querySelector(".colour").appendChild(col)
+    copy.querySelector(".colour").appendChild(col);
   })
 
   if (bike.colours == false) {
