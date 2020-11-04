@@ -52,7 +52,8 @@ main {
   margin-top: 50px;
 }
 
-.bike {
+.bike,
+.box {
   display: flex;
   flex-flow: column;
   /*  max-width: 500px;*/

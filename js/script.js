@@ -5,9 +5,25 @@ const datalink2 = "https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/bikes
 
 function getData() {
   //console.log('DOM fully loaded and parsed');
-  fetch(datalink2)
-    .then(res => res.json())
-    .then(handleData)
+  const urlParams = new URLSearchParams(window.location.search);
+  console.log("URLSearchParams " + window.location);
+  const the_bike_id = urlParams.get("bike_id");
+  console.log(the_bike_id);
+
+  //our routing of the script
+  if (the_bike_id) {
+    fetch("https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/bikes/" + the_bike_id + "?_embed")
+      .then(res => res.json())
+      .then(showBike) //skipping the ForEach loop - we only have one bike
+  } else if (!the_bike_id && window.location.pathname == "/singlebike.html") {
+    //alert("hello");
+    //https://stackoverflow.com/questions/503093/how-do-i-redirect-to-another-webpage
+    window.location.replace("index.html");
+  } else {
+    fetch(datalink2)
+      .then(res => res.json())
+      .then(handleData)
+  }
 }
 
 function handleData(posts) {
@@ -58,7 +74,14 @@ function showBike(bike) {
   }
 
   const a = copy.querySelector('a');
-  a.href += bike.id;
+  if (a) {
+    a.href += bike.id;
+  }
+
+  const divBikeDescription = copy.querySelector('#bike-description');
+  if (divBikeDescription) {
+    divBikeDescription.innerHTML = bike.content.rendered;
+  }
 
   document.querySelector("main").appendChild(copy);
 }
