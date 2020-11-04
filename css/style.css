@@ -21,6 +21,16 @@ header img {
   display: block;
 }
 
+a {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a:hover {
+  color: hotpink;
+  transform: scale(1.2);
+}
+
 body {
   background: var(--background-beige);
   font-family: "avenir";
@@ -128,7 +138,6 @@ p {
 }
 
 .fullSpecs {
-  /*  margin: 10px 30% 0px;*/
   display: block;
   margin: 0 auto;
   border-radius: 1px;

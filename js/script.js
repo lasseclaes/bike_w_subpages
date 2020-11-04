@@ -57,5 +57,8 @@ function showBike(bike) {
     copy.querySelector(".colour").textContent = ("N/A");
   }
 
+  const a = copy.querySelector('a');
+  a.href += bike.id;
+
   document.querySelector("main").appendChild(copy);
 }
