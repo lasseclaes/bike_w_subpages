@@ -1,3 +1,6 @@
+/* still room for improvement in the CSS. For exercise purposes only.
+In this case look at the template and write the JavaScript code. */
+
 :root {
   --background-beige: #f2efea;
   --black-colour: #000;
@@ -14,6 +17,10 @@ img {
   max-width: 100%;
 }
 
+header img {
+  display: block;
+}
+
 body {
   background: var(--background-beige);
   font-family: "avenir";
@@ -27,8 +34,8 @@ body {
 
 main {
   display: grid;
-  /*    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  /*  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));*/
   grid-gap: 5rem 3rem;
   /*  max-width: calc(1350px - 4rem);*/
   /*  background: red;*/
@@ -38,7 +45,7 @@ main {
 .bike {
   display: flex;
   flex-flow: column;
-  max-width: 500px;
+  /*  max-width: 500px;*/
   /* If there is only one, it'll take up full width */
 }
 
