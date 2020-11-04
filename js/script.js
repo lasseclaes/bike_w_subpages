@@ -36,9 +36,8 @@ function showBike(bike) {
 
   copy.querySelector(".inStock").textContent = bike.in_stock;
 
-
-  copy.querySelector(".img-bike").src = bike._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
-  copy.querySelector(".img-bike").alt = bike.brand;
+  copy.querySelector(".img-bike").src = bike._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url;
+  copy.querySelector(".img-bike").alt = bike.title.rendered;
 
   if (bike.price_to == false) {
     copy.querySelector(".twoPrices").classList.add("hide");
