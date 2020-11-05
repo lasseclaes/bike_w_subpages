@@ -9,7 +9,6 @@ function getData() {
   console.log("URLSearchParams " + window.location);
   const the_bike_id = urlParams.get("bike_id");
   console.log(the_bike_id);
-
   //our routing of the script
   if (the_bike_id) {
     fetch("https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/bikes/" + the_bike_id + "?_embed")
