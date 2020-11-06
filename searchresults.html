@@ -9,9 +9,10 @@
 </head>
 
 <body>
-  <form action="searchresults.html">
-    <input name="searchterm" type="search">
-    <input type="submit" value="search">
+  <form action="searchresults.html" method="get">
+    <!-- where the form data is send to -->
+    <input name="searchterm" type="search"><!-- name is key for retrieving the form data for this field -->
+    <input type="submit" value="search"><!-- for sending our form, value is here what's written on the submit button -->
   </form>
   <header>
     <img src="img/bike-stock.png" alt="bike stock" class="bikeStock">
@@ -44,7 +45,8 @@
     </article>
   </template>
 
-  <script src="js/script.js"></script>
+  <script src="js/search.js"></script>
 </body>
 
 </html>
+<!-- https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/search?_embed&search=1+or+5 -->
