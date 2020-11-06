@@ -21,10 +21,36 @@ header img {
   display: block;
 }
 
+nav a {
+  color: var(--dark-red);
+  letter-spacing: 4px;
+  font-size: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav,
+nav ul,
+nav li,
+header h2 {
+  display: inline;
+}
+
 a,
 a img {
   text-decoration: none;
   transition: all 0.3s;
+}
+
+nav li + li::before {
+  content: '/';
+  margin-left: 0.5rem;
+  padding-right: 0.5rem;
+  pointer-events: none;
+  display: inline-block;
 }
 
 a:hover,
@@ -101,6 +127,7 @@ p {
   margin-left: 0.7rem;
 }
 
+/*
 .headerH2 {
   display: inline;
   letter-spacing: 4px;
@@ -110,6 +137,7 @@ p {
 .brandsTop {
   color: var(--dark-red);
 }
+*/
 
 /*
 .img-bike {
