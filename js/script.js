@@ -9,7 +9,6 @@ function getData() {
   const urlParams = new URLSearchParams(window.location.search);
   console.log("URLSearchParams " + window.location);
   const the_bike_id = urlParams.get("bike_id");
-  const search_term = urlParams.get("searchterm");
   console.log(the_bike_id);
   //our routing of the script
   if (the_bike_id) {
@@ -20,13 +19,6 @@ function getData() {
     //alert("hello");
     //https://stackoverflow.com/questions/503093/how-do-i-redirect-to-another-webpage
     window.location.replace("index.html");
-  } else if (search_term) {
-    //https: //lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/search?_embed&search=1+or+5
-    //console.log("https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/search?_embed&search=" + search_term);
-    fetch("https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/search?_embed&search=" + search_term)
-      //fetch("https://lasseclaes.com/20f/2nd_sem_int/wp/wp-json/wp/v2/bikes?search=" + search_term + "&_embed")
-      .then(res => res.json())
-      .then(handleSearchResultData)
   } else {
     fetch(datalink2)
       .then(res => res.json())
@@ -49,15 +41,11 @@ function addNavLink(oneCategory) {
   console.log(oneCategory);
   const li = document.createElement('li');
   const a = document.createElement('a');
-  a.textContent = oneCategory.name;
   a.href = "category.html?cat_id=" + oneCategory.id;
+  a.textContent = oneCategory.name;
   console.log(a);
   li.appendChild(a);
   document.querySelector('nav ul').appendChild(li);
-}
-
-function handleSearchResultData(data) {
-  console.log(data);
 }
 
 

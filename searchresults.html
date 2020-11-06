@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body id="search-result">
   <form action="searchresults.html" method="get">
     <!-- where the form data is send to -->
     <input name="searchterm" type="search"><!-- name is key for retrieving the form data for this field -->
@@ -23,13 +23,18 @@
   </header>
 
   <main>
-
+    <!--<p><em>Nothing found</em></p>-->
   </main>
-
   <template>
     <article class="bike">
-      <h3 class="brand">brand</h3>
       <h2 class="model">model</h2>
+    </article>
+  </template>
+  <!-- <template>
+    <article class="bike">
+           <h3 class="brand">brand</h3>
+      <h2 class="model">model</h2>
+      <!--
       <div class="box">
         <p>Price -<span class="fetched">$<span class="price">price</span>
             <span class="twoPrices"> -
@@ -43,7 +48,7 @@
       </div>
       <figure class="figure-img"><img src="" alt="" class="img-bike"></figure>
     </article>
-  </template>
+  </template>-->
 
   <script src="js/search.js"></script>
 </body>
