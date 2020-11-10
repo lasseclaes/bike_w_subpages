@@ -51,6 +51,8 @@ function addNavLink(oneCategory) {
 
 function handleData(posts) {
   console.log(posts);
+  console.log("hide preloader");
+  document.querySelector('#loader').classList.add('hide');
   posts.forEach(showBike);
 }
 
